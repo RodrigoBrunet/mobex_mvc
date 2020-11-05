@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobex_mvc/components/button.widget.dart';
 import 'package:mobex_mvc/controllers/login.controller.dart';
 import 'package:mobex_mvc/views/home.view.dart';
+import 'package:mobex_mvc/widgets/busy.widget.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -53,34 +54,39 @@ class _LoginViewState extends State<LoginView> {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(30),
-          child: Card(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  width: double.infinity,
-                ),
-                Image.asset(
-                  'assets/images/notification.png',
-                  width: 250,
-                ),
-                Text(
-                  'Olá forasteiro',
-                  style: TextStyle(
-                    fontSize: 20,
+          child: TDBusy(
+            busy: busy,
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    width: double.infinity,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                BtnButton(
-                  text: 'Login com google',
-                  image: 'assets/images/google.png',
-                  callback: () {},
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-              ],
+                  Image.asset(
+                    'assets/images/notification.png',
+                    width: 250,
+                  ),
+                  Text(
+                    'Olá forasteiro',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  BtnButton(
+                    text: 'Login com google',
+                    image: 'assets/images/google.png',
+                    callback: () {
+                      handleSingIn();
+                    },
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

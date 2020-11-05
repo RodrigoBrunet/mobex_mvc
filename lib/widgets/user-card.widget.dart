@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobex_mvc/components/avatar.widget.dart';
+import 'package:mobex_mvc/controllers/login.controller.dart';
+import 'package:mobex_mvc/user.dart';
+import 'package:mobex_mvc/views/login.view.dart';
 
 class UserCard extends StatelessWidget {
+  final controller = new LoginController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +26,13 @@ class UserCard extends StatelessWidget {
         children: <Widget>[
           ImgAvatar(
             width: 80,
-            path: 'https://placehold.it/80',
+            path: user.picture,
           ),
           SizedBox(
             height: 20,
           ),
           Text(
-            'Rodrigo Brunet',
+            user.name,
             style: TextStyle(
               color: Colors.white,
             ),
@@ -39,7 +44,17 @@ class UserCard extends StatelessWidget {
                 'Sair',
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: () {},
+              onPressed: () {
+                controller.logout().then(
+                  (value) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginView(),
+                        ));
+                  },
+                );
+              },
             ),
           ),
           SizedBox(

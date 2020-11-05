@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobex_mvc/themes/app.theme.dart';
-import 'package:mobex_mvc/views/login.view.dart';
+import 'package:mobex_mvc/views/home.view.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter',
       theme: appTheme(),
-      home: LoginView(),
+      home: HomeView(),
     );
   }
 }
