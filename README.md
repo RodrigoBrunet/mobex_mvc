@@ -1,4 +1,4 @@
-# mobex_mvc
+# mobx_mvc
 
 A new Flutter application.
 
